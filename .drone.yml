@@ -1,0 +1,54 @@
+kind: pipeline
+name: default
+
+steps:
+  # Builds the project
+  - name: build
+    image: node:lts
+    commands:
+      - yarn install
+      - yarn buildprod
+
+  # Ensures code quality
+  - name: lint
+    image: node:lts
+    commands:
+      - yarn lint
+
+  # TODO: Add test step
+
+  - name: test
+    image: node:lts
+    commands:
+      - yarn test:unit
+
+  # TODO: Upload coverage to codecov
+
+  # Pushes auto tags to docker
+  - name: docker-tags
+    image: plugins/docker
+    settings:
+      repo: polyhome/frontend
+      auto_tag: true
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      event:
+        - tag
+
+  # Pushes 'latest' to docker
+  - name: docker-latest
+    image: plugins/docker
+    settings:
+      repo: polyhome/frontend
+      tags:
+        - latest
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    when:
+      event:
+        - tag

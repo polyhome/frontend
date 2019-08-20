@@ -1,0 +1,28 @@
+sudo: required
+language: node_js
+node_js:
+- 10.16.0
+cache: skip
+services:
+- docker
+env:
+  matrix:
+  - NODE_CONTAINER=10.16-stretch
+  global:
+  - secure: NDs8A+CiG+nVRRixJSvTAn19Vrm6WRK6xfVZPcDrgI/q7pgx1+SIdXe/swOwozC1EO9s38/8Mpi98l6JK/4g8qVexhqeBlZe3USTJpA+7Kq+WrUAtEuEGmg6tXr6+SWI//S3MBzpkf0OVL8wJ6FAIIPNkebTiboANpRdOJBTC4ksQTIrXwVjXTu04N+dstnq/9Tm8b8J9Jpm3V+TsedFtuoNZrIweGVkEEdoFv6I5Jp29iQeiqn3JPasPu5arrdWfd98ZzA4/iYet30dzejwrUnv5UcPaleG1zTdVunmQCaSrUtk7GUM29GEgrG4pZe2zMFymsI28/2uavnbdls/e6LnyeZU9CKDCWxt3weU9UtyWRFv2ewKuPOXKf06LjYDu8bNwMSk5mAXs2Iz08Cl8YWrtz7HURr5hZDZAiil7SKGeLYaJDCcFIsYm8gKIRbaOWFZLuHjLUQdZdXBlAP8n/bdCejT2fnDm5B2UNXLTIXF8kamPKGrJtrMQWzHy9v5LhsJvcOEdSN6KdjedGKbbFRN6M2zAgQwPnpi3TpxZwFDvcmWECquozxKEKZbCgzvslNGwEy7zQjRUa8pvpiLnm7Q4VVzjWS7NXiUh/VCVnpfJbsZyk7Kbz7dg5P96qB29ZpLAB9oeMX/vpV0musERdzNFKMeKDPEMQvtdlRyIYU=
+  - secure: cgQWALLgW8m8Oi7VMGweh/8zYEi0GrCcMate5/2NKwiWqyPIXNXZ43CxdND66l7fnQ7PgS4X2FjM9RzZa3yjG/Xppei82VULOrOCqC3ovuXr80X7NOFQ8LrrMa0ZaWN2CAv20k0qS5XEanyhkaG2diNQ4NJgebhQLbshxydQ10U59HKmOI60FK6W3rjPHwrCzplpSb+LFI9oP15X24H/inPmayriXw4M6Qkmzy+7NLTJ5AcAUxVfiTiMWA3lESU8TIEUGnKksMcobwgN42xwgF2jKJT02XA3Ls2uB6YbopKgA4wf1wwvn4PzsFLQCRZ75nfYzBL17liXPDd6TX3/f39opa93imUxt91c5J1Ml+j+L+rC+jUEzyBjg0PNorBN+rUse8+q5jTWkG6xITD7ozYx5APYk4NkE6ctO5KT8V1GPbnZOZI0rQ+0q7qqZwSeOHhCNVFVfy7S1xWJgREpVo+3fgZwOr8fGyeJAU5stq6EhG789sp5rjC5rySjezSgXNDU/0zn1/q4Flg1VNr2pvzUYSfYpeA9q92zjpe25gXK3XEp7k6WJIgOlC6vk2TsK8/VDkM/gADJ1cTozPQxszmENSqaGQIElqBgoU7NCyESsAGXa8mB/ai888JZaVISv36lWQwsHODS/DhWIyjntxoonPoiTvbaDg8uutlqv8I=
+before_install:
+- docker pull node:$NODE_CONTAINER
+install:
+- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn install"
+script:
+- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn buildprod"
+- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn lint"
+- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn test:unit"
+- yarn codecov
+deploy:
+  provider: script
+  script: bash ./scripts/build.sh
+  on:
+    tags: true
+    branch: master

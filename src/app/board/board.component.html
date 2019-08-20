@@ -1,0 +1,8 @@
+<div class="container">
+  <ng-container *ngFor="let group of board.groups" classes="[]" #container>
+    <app-group [groupId]="group._id"
+               (groupChanged)="container.classes = $event.classes"
+               [ngClass]="container.classes">
+    </app-group>
+  </ng-container>
+</div>

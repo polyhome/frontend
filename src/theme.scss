@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary-hue: 0;
+$primary-saturation: 0;
+$theme: (
+  50: hsl($primary-hue, $primary-saturation, 5),
+  100: hsl($primary-hue, $primary-saturation, 10),
+  150: hsl($primary-hue, $primary-saturation, 15),
+  200: hsl($primary-hue, $primary-saturation, 20),
+  250: hsl($primary-hue, $primary-saturation, 25),
+  300: hsl($primary-hue, $primary-saturation, 30),
+  350: hsl($primary-hue, $primary-saturation, 35),
+  400: hsl($primary-hue, $primary-saturation, 40),
+  450: hsl($primary-hue, $primary-saturation, 45),
+  500: hsl($primary-hue, $primary-saturation, 50),
+  550: hsl($primary-hue, $primary-saturation, 55),
+  600: hsl($primary-hue, $primary-saturation, 60),
+  650: hsl($primary-hue, $primary-saturation, 65),
+  700: hsl($primary-hue, $primary-saturation, 70),
+  750: hsl($primary-hue, $primary-saturation, 75),
+  800: hsl($primary-hue, $primary-saturation, 80),
+  850: hsl($primary-hue, $primary-saturation, 85),
+  900: hsl($primary-hue, $primary-saturation, 90),
+  950: hsl($primary-hue, $primary-saturation, 95),
+  1000: hsl($primary-hue, $primary-saturation, 100),
+  contrast: (),
+);
+
+$primary: mat-palette($theme, 600);
+$accent: mat-palette($theme, 200);
+$warn: mat-palette($theme, 450);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);

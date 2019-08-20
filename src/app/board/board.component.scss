@@ -1,0 +1,17 @@
+@import '../../assets/utilities/variables';
+
+.container {
+	background-color: white;
+	margin: 5px;
+	display: grid;
+	grid-template-columns: repeat($columns, 1fr);
+	grid-auto-rows: $row-height;
+	min-height: calc(100vh - 74px);
+	grid-gap: 0.2em;
+}
+
+app-group {
+	display: grid;
+	align-items: center;
+	font-family: $globalFont;
+}

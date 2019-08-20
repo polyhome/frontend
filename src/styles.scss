@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import './assets/utilities/variables';
+
+body {
+	margin: 0;
+	font-size: 150%;
+}
+
+.card {
+	background-color: hsl(0, 0, 100);
+	box-shadow: 0 4px 8px 0 hsl(0, 0, 80);
+	transition: 0.3s;
+	font-weight: 500;
+}
+
+.card:hover {
+	box-shadow: 0 5px 10px 0 hsl(0, 0, 80);
+}
+
+.display-inline {
+	display: inline;
+}
+
+@for $i from 1 through $columns {
+	.col-#{$i} {
+		grid-column-start: span #{$i};
+		grid-template-columns: repeat(#{$i}, 1fr);
+	}
+
+	.row-#{$i} {
+		grid-row-start: span #{$i};
+		grid-template-rows: repeat(#{$i}, 1fr);
+	}
+
+	@media screen and (max-width: 1200px) {
+		.col-md-#{$i} {
+			grid-column-start: span #{$i};
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+
+		.row-md-#{$i} {
+			grid-row-start: span #{$i};
+			grid-template-rows: repeat(#{$i}, 1fr);
+		}
+	}
+
+	@media screen and (max-width: 992px) {
+		.col-sm-#{$i} {
+			grid-column-start: span #{$i};
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+
+		.row-sm-#{$i} {
+			grid-row-start: span #{$i};
+			grid-template-rows: repeat(#{$i}, 1fr);
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		.col-xs-#{$i} {
+			grid-column-start: span #{$i};
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+
+		.row-xs-#{$i} {
+			grid-row-start: span #{$i};
+			grid-template-rows: repeat(#{$i}, 1fr);
+		}
+	}
+}
+
+@for $i from 1 through $columns {
+	@for $j from 1 through $columns {
+		@for $k from 1 through $columns {
+			@for $v from 1 through $columns {
+				.area-#{$i}-#{$j}-#{$k}-#{$v} {
+					grid-row-start: $i;
+					grid-column-start: $j;
+					grid-row-end: $i + $k;
+					grid-column-end: $j + $v;
+					height: 100%;
+				}
+
+				@media screen and (max-width: 1200px) {
+					.area-md-#{$i}-#{$j}-#{$k}-#{$v} {
+						// grid-area: #{$i} / #{$j} / #{$k} / #{$v};
+						grid-row-start: $i;
+						grid-column-start: $j;
+						grid-row-end: $i + $k;
+						grid-column-end: $j + $v;
+						height: 100%;
+					}
+				}
+
+				@media screen and (max-width: 966px) {
+					.area-sm-#{$i}-#{$j}-#{$k}-#{$v} {
+						// grid-area: #{$i} / #{$j} / #{$k} / #{$v};
+						grid-row-start: $i;
+						grid-column-start: $j;
+						grid-row-end: $i + $k;
+						grid-column-end: $j + $v;
+						height: 100%;
+					}
+				}
+				// Set tabs instead of spaces
+				@media screen and (max-width: 768px) {
+					.area-xs-#{$i}-#{$j}-#{$k}-#{$v} {
+						// grid-area: #{$i} / #{$j} / #{$k} / #{$v};
+						grid-row-start: $i;
+						grid-column-start: $j;
+						grid-row-end: $i + $k;
+						grid-column-end: $j + $v;
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+}

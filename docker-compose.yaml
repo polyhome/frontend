@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  frontend:
+    container_name: ph-f
+    image: node:lts
+    hostname: ph-f
+    ports:
+      - 4200:4200
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: bash -c 'yarn install && yarn serve'
