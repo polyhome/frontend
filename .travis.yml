@@ -1,25 +1,25 @@
 sudo: required
 language: node_js
 node_js:
-- 10.16.0
+  - 10.16.0
 cache: skip
 services:
-- docker
+  - docker
 env:
   matrix:
-  - NODE_CONTAINER=10.16-stretch
+    - NODE_CONTAINER=10.16-stretch
   global:
-  - secure: NDs8A+CiG+nVRRixJSvTAn19Vrm6WRK6xfVZPcDrgI/q7pgx1+SIdXe/swOwozC1EO9s38/8Mpi98l6JK/4g8qVexhqeBlZe3USTJpA+7Kq+WrUAtEuEGmg6tXr6+SWI//S3MBzpkf0OVL8wJ6FAIIPNkebTiboANpRdOJBTC4ksQTIrXwVjXTu04N+dstnq/9Tm8b8J9Jpm3V+TsedFtuoNZrIweGVkEEdoFv6I5Jp29iQeiqn3JPasPu5arrdWfd98ZzA4/iYet30dzejwrUnv5UcPaleG1zTdVunmQCaSrUtk7GUM29GEgrG4pZe2zMFymsI28/2uavnbdls/e6LnyeZU9CKDCWxt3weU9UtyWRFv2ewKuPOXKf06LjYDu8bNwMSk5mAXs2Iz08Cl8YWrtz7HURr5hZDZAiil7SKGeLYaJDCcFIsYm8gKIRbaOWFZLuHjLUQdZdXBlAP8n/bdCejT2fnDm5B2UNXLTIXF8kamPKGrJtrMQWzHy9v5LhsJvcOEdSN6KdjedGKbbFRN6M2zAgQwPnpi3TpxZwFDvcmWECquozxKEKZbCgzvslNGwEy7zQjRUa8pvpiLnm7Q4VVzjWS7NXiUh/VCVnpfJbsZyk7Kbz7dg5P96qB29ZpLAB9oeMX/vpV0musERdzNFKMeKDPEMQvtdlRyIYU=
-  - secure: cgQWALLgW8m8Oi7VMGweh/8zYEi0GrCcMate5/2NKwiWqyPIXNXZ43CxdND66l7fnQ7PgS4X2FjM9RzZa3yjG/Xppei82VULOrOCqC3ovuXr80X7NOFQ8LrrMa0ZaWN2CAv20k0qS5XEanyhkaG2diNQ4NJgebhQLbshxydQ10U59HKmOI60FK6W3rjPHwrCzplpSb+LFI9oP15X24H/inPmayriXw4M6Qkmzy+7NLTJ5AcAUxVfiTiMWA3lESU8TIEUGnKksMcobwgN42xwgF2jKJT02XA3Ls2uB6YbopKgA4wf1wwvn4PzsFLQCRZ75nfYzBL17liXPDd6TX3/f39opa93imUxt91c5J1Ml+j+L+rC+jUEzyBjg0PNorBN+rUse8+q5jTWkG6xITD7ozYx5APYk4NkE6ctO5KT8V1GPbnZOZI0rQ+0q7qqZwSeOHhCNVFVfy7S1xWJgREpVo+3fgZwOr8fGyeJAU5stq6EhG789sp5rjC5rySjezSgXNDU/0zn1/q4Flg1VNr2pvzUYSfYpeA9q92zjpe25gXK3XEp7k6WJIgOlC6vk2TsK8/VDkM/gADJ1cTozPQxszmENSqaGQIElqBgoU7NCyESsAGXa8mB/ai888JZaVISv36lWQwsHODS/DhWIyjntxoonPoiTvbaDg8uutlqv8I=
+    - secure: B2OIgDPb7xl0TI094fgHfaCUNmvT+TtA2lm0huWZGy9EgC+NRpjVczl71Uly7zARoWoUk3Hrng079cGEROY6U0B3F5Btvpati6HBCjEWHO/VUoJzOug4XwUcRh87mkwkm4NKoNSXrp4x9RHIhnQPsdEccijJ0BvgvC1912XcSJolWAWKAof1y17ANEBSMjVo4Ml8o7HtCw/u/sxol6Jc/WjYpFXpNwA/UBdBTlDYWOkboO3CYx1tn1u4JcNIfafEwsXXOS8WTWVKv1K61H3uPRNMqDC3MH1vYz1kB/7iPGAqgta2tz79SWD15Rc8ElvAoz5kPclPQvdOTtLA4QL2E42moVoJiWj5yQsxT4c9o4JkLZfvee+aU8O+j657unDFrAmXKmi/0kML0VcgQ1+ax/rBNLvULkLluAL8/K+lP2Qubrs5A/pm8bz8teDNp1YHrR6IMguz2NqlthNWXw2rU6cAw9Uc0ORrXIhz69oyx1n5wMKrg3UE1kRyL/mbIDRDlIQMWkMd/HvR3DtrgG7FmlLMPbTGByn0Lb0Git7EdHLJYY/3Ka4BjSv5Ep63Cr1qmmhPTEhGDZe8NzxOUrbIe5//9X7uIlCMk9/ZjveTqv+Fu2V66y3kVQdPxRfGIWxefdz/7zraJmbD+cfgyCcN5pfUXMoePLW4PxLysA7QN2g=
+    - secure: YiOgCANf4A6aMB4fJPxifrpV90KrNUtG4LIitvHFZY29nDwM1C9nZ4me6B+N0d9nMgOTMhN1KQe9y3Lf1ys9NgqBGxS9BdVjWpp0d8V4mR0mWvf32CZYJnKhaKOVceZbAenrcOmoa3TOK7e0pL7hv01woyr/dn90aKUU7siOEXUhVxxGRZRun6AjrajuvEfUAyudVih4m8BdtszbzvwQugXvTusfDaWSobs2lXxy/xvLyaaNMBgLRtKKsJUd3EKqaK9sjKthibGh3r91AqkkSEZRgF4WT3DtQfKVWaHl+P7E3KNN2ZibMwEZsHHX3w9rSHFhXETF4AHwpJHS17KG9NM95HLKr/wHefFlwEQdNQtaEX+f4ODPk43qxpL+p2h82ExxgCW6KkTe2alv2ybKPuD7+WRwT8cNlNRtsQ1swolst/soBXOPGfpelSFkYWiwelaojR3KjZKFTcsHGlkg65GU+KFgxvEiyFCD7x9rYh2b10wyT6hhiW+00rWbzdWZrQq+YmJAhqn6+00Tn0QhhDCI127+GabOMN2D3aSmK01rt0B6hRli+UemQWugpxqf03TZMk4u8tRShDT9uR0OMLTkbNEXs5ko2Agm21z5vmfaD4f4BuiLh1EkzdA5RiBYha4QV0vjfBMiFYxXjodWEt7ekFFJ96oZY3v7h6u10mg=
 before_install:
-- docker pull node:$NODE_CONTAINER
+  - docker pull node:$NODE_CONTAINER
 install:
-- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn install"
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn install"
 script:
-- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn buildprod"
-- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn lint"
-- docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn test:unit"
-- yarn codecov
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn buildprod"
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn lint"
+  - docker run -v $(pwd):/app node:$NODE_CONTAINER bash -c "cd app && yarn test:unit"
+  - yarn codecov
 deploy:
   provider: script
   script: bash ./scripts/build.sh
